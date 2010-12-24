@@ -13,7 +13,7 @@ SUX.js uses YQL to do server side GET requests so we can access response headers
 
     SUX.expand(["http://goo.gl/V77S","http://ow.ly/2MKSU","http://bit.ly/bKIvIF"]);
 
-This will return the full URLs and execute the SUX.callback method which returns the array of long URLs. You can pass a second argument to specify a function name for a different callback method.
+This will return the full URLs and execute the `SUX.callback` method which returns the array of long URLs. You can pass a second argument to specify a function name for a different callback method.
 
 	SUX.expand(["http://goo.gl/V77S","http://ow.ly/2MKSU","http://bit.ly/bKIvIF"],"doSomethingWithLongURLs");
 
