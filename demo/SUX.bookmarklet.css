@@ -1,0 +1,41 @@
+/*
+ * SUX: Short Url eXpander - Bookmarklet
+ * http://github.com/ryanseddon/SUX
+ *
+ * Copyright (c) 2010 Ryan Seddon - http://thecssninja.com/
+ * Dual-licensed under the BSD and MIT licenses.
+ * http://www.thecssninja.com/demo/license.txt
+ */
+ 
+a[data-longurl]:hover {
+	text-decoration: none;
+}
+a[data-longurl]:hover:after {
+	background: rgb(0,0,0);
+	background: rgba(0,0,0,0.7);
+	content: attr(data-longurl);
+	color: #fff;
+	padding: 3px 5px;
+	min-height: 15px;
+	position: absolute;
+	margin: -1.6em 0 0 -8em;
+	text-decoration: none;
+	text-shadow: 1px 1px 0 #000;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	-moz-box-shadow: -3px -3px 5px #000;
+    -webkit-box-shadow: -3px -3px 5px #000;
+    box-shadow: -3px -3px 5px #000; 
+}
+a[data-longurl]:hover:before {
+	content: "\00a0";
+	color: transparent;
+	width:0; 
+	height:0; 
+	border: 5px solid transparent;
+	border-top-color: rgb(0,0,0);
+	border-top-color: rgba(0,0,0,0.7);
+	border-width: 7px 5px 0;
+	position: absolute;
+}
