@@ -17,6 +17,8 @@ This will return the full URLs and execute the `SUX.callback` method which retur
 
 	SUX.expand(["http://goo.gl/V77S","http://ow.ly/2MKSU","http://bit.ly/bKIvIF"],"doSomethingWithLongURLs");
 
+See live example: http://ryanseddon.github.com/SUX/
+
 #### Bookmarklet
 
 Still working on it
