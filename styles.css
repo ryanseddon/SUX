@@ -1,0 +1,139 @@
+/*
+ * <!-- DEMO NAME -->
+ * http://www.thecssninja.com/path/to/article
+ *
+ * Copyright (c) 2010 Ryan Seddon 
+ * Dual-licensed under the BSD and MIT licenses.
+ * http://thecssninja.com/demo/license.txt
+ */
+
+/* Just some base styles not needed for example to function */
+*, html { font-family: Verdana, Arial, Helvetica, sans-serif; }
+
+body, form, ul, li, p, h1, h2, h3, h4, h5
+{
+	margin: 0;
+	padding: 0;
+}
+body { background-color: #606061; color: #ffffff; margin: 60px 0 0; }
+img { border: none; }
+p
+{
+	font-size: 1em;
+	margin: 0 0 1em 0;
+}
+
+/* Branding */
+#cssninja
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: #18191d;
+	width: 100%;
+	height: 40px;
+}
+	#cssninja p
+	{
+		color: #ffffff;
+		text-align: center;
+		margin: 10px 0 0 0;
+	}
+	#cssninja a
+	{
+		color: #ffffff;
+		text-decoration: none;
+		background: url(../assets/ico_ninja.gif) 0 0 no-repeat;
+		padding: 4px 0 9px 28px;
+	}
+	#cssninja a:hover
+	{
+		text-decoration: underline;
+	}
+/* Demo syles */
+#container {
+	width: 960px;
+	margin: 0 auto;
+	text-align: center;
+}
+	#container input {
+		width: 400px;
+		display: block;
+		height: 30px;
+		padding: 5px 10px;
+		margin: 0 auto 10px;
+		font-size: 14px;
+		border: 1px solid #000;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+	}
+
+button {
+	display: inline-block;
+	vertical-align: baseline;
+	margin: 0 2px 25px;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font: 700 25px/100% Arial, Helvetica, sans-serif;
+	padding: .5em 2em .55em;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	color: #d9eef7;
+	border: solid 1px #0076a3;
+	background: #0095cd;
+	background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+	background: -moz-linear-gradient(top,  #00adee,  #0078a5);
+	-webkit-border-radius: .5em; 
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+button:hover, button:focus {
+	background: #007ead;
+	background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
+	background: -moz-linear-gradient(top,  #0095cc,  #00678e);
+}
+button:focus {
+	position: relative;
+	top: 1px;
+	color: #80bed6;
+	background: -webkit-gradient(linear, left top, left bottom, from(#0078a5), to(#00adee));
+	background: -moz-linear-gradient(top,  #0078a5,  #00adee);
+}
+
+h1 {
+	font-size: 500%;
+	margin: 0 0 25px;
+	text-shadow: 1px 1px 3px #000;
+}
+	h1 span {
+		max-width: 0px;
+		display: inline-block;
+		overflow: hidden;
+		vertical-align: bottom;
+		color: #ccc;
+		-webkit-transition: max-width 0.5s ease;
+		   -moz-transition: max-width 0.5s ease;
+		    -ms-transition: max-width 0.5s ease;
+		     -o-transition: max-width 0.5s ease;
+		        transition: max-width 0.5s ease;
+	}
+	h1:hover span, h1:focus span {
+		max-width: 500px;
+	}
+	
+.linklist {
+	margin: 10px 0;
+}
+	.linklist li {
+		padding: 20px;
+		border-bottom: 1px solid #fff;
+		list-style: none;
+	}
+	.linklist li:last-child {
+		border-bottom: none;
+	}
