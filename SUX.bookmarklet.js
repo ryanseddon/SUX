@@ -17,6 +17,8 @@ var SUX = SUX || {};
 		body = d.body, s, params, node, arr = [],
 		urls = d.links.length, linki = [], expand = [], link, curLink, isDone;
 	
+	// Trigger active psuedo class on iPhone
+	d.ontouchstart = function() {};
 	
 	SUX.expand = function(url,callback) {
 		SUX.req(url,callback);
@@ -59,7 +61,7 @@ var SUX = SUX || {};
 			return domain;
 		}
 	};
-	SUX.bookmarklet = function() {
+	SUX.bookmarklet = (function() {
 		while(urls--) {
 			curLink = d.links[urls];
 			link = SUX.getHostname(curLink.href);
@@ -72,9 +74,10 @@ var SUX = SUX || {};
 			}
 		} 
 
-		SUX.expand(expand,"SUX.update");
-	};
-	SUX.update = function(data) {
+		SUX.expand(expand, "SUX.callback");
+	})();
+	
+	SUX.callback = function(data) {
 		var lnkArr = data.query.results.result.expanded,
 			k = lnkArr.length;
 		
@@ -82,8 +85,6 @@ var SUX = SUX || {};
 			linki[k].el.setAttribute("data-longurl",lnkArr[k]);
 		}
 	};
-	
-	SUX.bookmarklet();
 })(document);
 	
 /* Load bookmarklet code /

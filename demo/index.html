@@ -22,28 +22,65 @@
 	</div>
 	
 	<div id="container">
-	
+		<h1 tabindex="0">S<span>hort&nbsp;</span>U<span>RL&nbsp;e</span>X<span>pander</span></h1>
+		<p>Works on any short URL, even those weird ones nobody really uses.</p>
 		<input type="text" id="urls" placeholder="Enter one or more short urls, comma seperated" />
 		<button id="suxit">SUX it</button>
-	
-		<p>
-			<a href="http://i.imgur.com/6aHjC.jpg">Link</a>
-			<a href="http://cssn.in/ja/029">Link</a>
-			<a href="http://bit.ly/cYeZbR">Link</a>
-			<a href="http://bit.ly/bCOzTf">Link</a>
-			<a href="http://bit.ly/dpH2Zi">Link</a>
-			<a href="http://bit.ly/azqNaz">Link</a>
-			<a href="http://bit.ly/c4eUSN">Link</a>
-			<a href="http://bit.ly/bhD4sv">Link</a>
-		</p>
+		
+		<ul id="links" class="linklist"></ul>
 	</div>
 	
-	<script src="../SUX.bookmarklet.js"></script>
+	
+	
+	<script src="../SUX.js"></script>
 	<script>
 		var input = document.getElementById("urls"),
-			btn = document.getElementById("suxit");
+			btn = document.getElementById("suxit"),
+			links = document.getElementById("links"), urls;
 			
+		btn.onclick = function(e) {
+			urls = input.value.split(",");
+			
+			SUX.expand(urls,"appendLink");
+		}
 		
+		function appendLink(data){
+			buildLink(data.query.results.result.expanded);
+		}
+		
+		function buildLink(results, index) {
+			var anchor,
+				docFrag = document.createDocumentFragment();
+			
+			if(typeof results != "string") {
+				for(var i = 0, len = results.length; len > i; i++) {
+					
+					anchor = [
+						"<a href="+results[i]+">",
+							results[i],
+						"</a>"
+					].join('');
+					
+					var li = document.createElement("li")
+					li.innerHTML = anchor;
+					docFrag.appendChild(li);
+				}
+				
+				links.appendChild(docFrag);
+			} else {
+				anchor = [
+					"<a href="+results+">",
+						results,
+					"</a>"
+				].join('');
+				
+				var li = document.createElement("li")
+				li.innerHTML = anchor;
+				docFrag.appendChild(li);
+			}
+			
+			links.appendChild(docFrag);
+		}
 	</script>
 		
 	<!-- Google analytics 

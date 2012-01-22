@@ -10,7 +10,8 @@
 a[data-longurl]:hover {
 	text-decoration: none;
 }
-a[data-longurl]:hover:after {
+a[data-longurl]:hover:after,
+a[data-longurl]:active:after {
 	background: rgb(0,0,0);
 	background: rgba(0,0,0,0.7);
 	content: attr(data-longurl);
@@ -28,7 +29,8 @@ a[data-longurl]:hover:after {
     -webkit-box-shadow: -3px -3px 5px #000;
     box-shadow: -3px -3px 5px #000; 
 }
-a[data-longurl]:hover:before {
+a[data-longurl]:hover:before,
+a[data-longurl]:active:before {
 	content: "\00a0";
 	color: transparent;
 	width:0; 

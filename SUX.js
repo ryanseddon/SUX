@@ -14,33 +14,32 @@ var SUX = SUX || {};
 		yqlURL = "https://query.yahooapis.com/v1/public/yql?format=json&q=",
 		yqlRS = "USE '" + dataTable + "' AS remote;",
 		yqlS = "SELECT * FROM remote WHERE url=",
-		body = d.body, s, params, node, arr = [];
-	
+		body = d.body, script, params, node, arr = [];
 	
 	SUX.expand = function(url,callback) {
-		SUX.req(url,callback);
-	};
-	
-	SUX.req = function(u,c) {
-		for(var i = 0, len = u.length; i<len; i++) {
-			arr += ["\"", u[i], "\"",((i !== len) ? "," : ""),""].join("");
+		var len = url.length;
+		
+		if(typeof url != "string" && len > 1) {
+			for(var i = 0; i<len; i++) {
+				arr += ["\"", url[i], "\"",((i !== len) ? "," : ""),""].join("");
+			}
 		}
-		params = encodeURIComponent([yqlRS, yqlS, "'{urls:[", arr, "]}'"].join(""));
-		u = [yqlURL, params, "&callback=",(c = c || "SUX.callback")].join("");
+		params = encodeURIComponent([yqlRS, yqlS, "'{urls:[", (arr.length ? arr : "\""+url+"\""), "]}'"].join(''));
+
+		url = [yqlURL, params, "&callback=",(callback = callback || "SUX.callback")].join("");
 		node = d.getElementById("SUX") || false;
 		
 		if(node) { node.src = null; node.parentNode.removeChild(node); }
 		
-		s = d.createElement("script");
-		s.id = "SUX";
-		s.src = u;
+		script = d.createElement("script");
+		script.id = "SUX";
+		script.src = url;
 		
-		body.appendChild(s);
+		body.appendChild(script);
 	};
 	SUX.callback = function(data) {
 		return data.query.results.result.expanded;
 	};
-
 })(document);
 
 // SUX.expand(["http://goo.gl/V77S","http://ow.ly/2MKSU","http://bit.ly/bKIvIF","http://is.gd/fDI42","http://tinyurl.com/2f7tkox","http://t.co/eaVrg1i"]);
@@ -59,14 +58,20 @@ var SUX = SUX || {};
 	- http://gul.ly/hx
 	- http://df4.us/gfs
 	- http://webk.it/49260
-	- wapo.st/dfP3Zy
-	- ttk.me/t48o4
-	- tmo.to/efhq
-	- dld.bz/7S2y
-	- n.pr/i0fB5y
-	- engt.co/g0pTRZ
-	- db.tt/
-	- oreil.ly/fOrEid
+	- http://wapo.st/dfP3Zy
+	- http://ttk.me/t48o4
+	- http://tmo.to/efhq
+	- http://dld.bz/7S2y
+	- http://n.pr/i0fB5y
+	- http://engt.co/g0pTRZ
+	- http://db.tt/
+	- http://oreil.ly/fOrEid
+	- http://nyp.st/g7qddo
+	- http://me.lt/9jjz
+	- http://d.pr/eo76
+	- http://r2.ly/87di
+	- http://reg.cx/1N1Z
+	- http://otf.me/HxW
 	
 	Bundles:
 	- http://bit.ly/diX0YD - Search page for item_longUrl classname
