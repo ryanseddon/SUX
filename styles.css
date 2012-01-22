@@ -1,6 +1,6 @@
 /*
- * <!-- DEMO NAME -->
- * http://www.thecssninja.com/path/to/article
+ * SUX.js
+ * https://github.com/ryanseddon/SUX
  *
  * Copyright (c) 2010 Ryan Seddon 
  * Dual-licensed under the BSD and MIT licenses.
@@ -136,4 +136,8 @@ h1 {
 	}
 	.linklist li:last-child {
 		border-bottom: none;
+	}
+	.linklist a {
+		color: #fff;
+		font-size: 30px;
 	}
