@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	
+	<link rel="stylesheet" type="text/css" href="_styles.css" media="screen">
+	
+	<title>SUX - Short URL eXpander | The CSS Ninja</title>
+
+</head>
+<body>
+	
+	<div id="cssninja">
+		<p><a href="http://www.thecssninja.com/">Example from the [CSS] Ninja</a></p>
+	</div>
+	
+	<div id="container">
+		<h1 tabindex="0">S<span>hort&nbsp;</span>U<span>RL&nbsp;e</span>X<span>pander</span></h1>
+		<p>Works on any short URL, even those weird ones nobody really uses.</p>
+		<input type="text" id="urls" placeholder="Enter one or more short urls, comma seperated" />
+		<button id="suxit">SUX it</button>
+		
+		<ul id="links" class="linklist"></ul>
+	</div>
+	
+	
+	
+	<script src="../SUX.js"></script>
+	<script>
+		var input = document.getElementById("urls"),
+			btn = document.getElementById("suxit"),
+			links = document.getElementById("links"), urls;
+			
+		btn.onclick = function(e) {
+			urls = input.value.split(",");
+			
+			SUX.expand(urls,"appendLink");
+		}
+		
+		function appendLink(data){
+			buildLink(data.query.results.result.expanded);
+		}
+		
+		function buildLink(results, index) {
+			var anchor,
+				docFrag = document.createDocumentFragment();
+			
+			if(typeof results != "string") {
+				for(var i = 0, len = results.length; len > i; i++) {
+					
+					anchor = [
+						"<a href="+results[i]+">",
+							results[i],
+						"</a>"
+					].join('');
+					
+					var li = document.createElement("li")
+					li.innerHTML = anchor;
+					docFrag.appendChild(li);
+				}
+				
+				links.appendChild(docFrag);
+			} else {
+				anchor = [
+					"<a href="+results+">",
+						results,
+					"</a>"
+				].join('');
+				
+				var li = document.createElement("li")
+				li.innerHTML = anchor;
+				docFrag.appendChild(li);
+			}
+			
+			links.appendChild(docFrag);
+		}
+	</script>
+		
+	<!-- Google analytics -->
+	<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+		var pageTracker = _gat._getTracker("UA-4638292-1");
+		pageTracker._initData();
+		pageTracker._trackPageview();
+	</script>
+	
+</body>
+</html>
