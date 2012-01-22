@@ -19,7 +19,7 @@ This will return the full URLs and execute the `SUX.callback` method which retur
 
 #### Bookmarklet
 
-I've also created a bookmarklet that uses the API to scan a web site for all short URLs and replace the anchor text with the expanded version. That way you can see where the actual link is going but the link will still pass through the short version so any analytics attached to it is still captured.
+Still working on it
 
 
 
